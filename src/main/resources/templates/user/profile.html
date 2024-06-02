@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="fragments/head :: common-head"></th:block>
+
+<body>
+<!-- Include Header -->
+<th:block th:replace="fragments/header :: header"></th:block>
+
+<!-- Profile section -->
+<section class="profile">
+    <!-- User information container -->
+    <div class="profileContainer">
+
+        <!-- User image -->
+        <div class="profile-left">
+            <div class="profile-img-wrap story-border" th:onclick="'popup(\'.modal-image\')'">
+                <form id="userProfileImageForm">
+                    <input type="file" name="profileImageFile" style="display: none;" id="userProfileImageInput"/>
+                </form>
+                <img class="profile-image" th:src="'#'" onerror="this.src='/images/person.jpeg'" id="userProfileImage"/>
+            </div>
+        </div>
+        <!-- User image end -->
+
+        <!-- User information and buttons (photo upload, subscribe) -->
+        <div class="profile-right">
+            <div class="name-group">
+                <h2>TherePrograming</h2>
+
+                <a class="cta" th:href="@{/image/upload}">사진등록</a>
+                <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
+                <button class="modi" th:onclick="'popup(\'.modal-info\')'">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+
+            <div class="subscribe">
+                <ul>
+                    <li><a href="">게시물 <span>3</span></a></li>
+                    <li><a href="#" onclick="subscribeInfoModalOpen();">구독정보 <span>2</span></a></li>
+                </ul>
+            </div>
+            <div class="state">
+                <h4>자기 소개입니다.</h4>
+                <h4><a th:href="@{https://github.com/codingspecialist}">https://github.com/codingspecialist</a></h4>
+            </div>
+        </div>
+        <!-- User information and buttons end -->
+
+    </div>
+</section>
+<!-- Profile section end -->
+
+<!-- Post section -->
+<section id="tab-content">
+    <div class="profileContainer">
+        <div id="tab-1-content" class="tab-content-item show">
+            <div class="tab-1-content-inner">
+
+                <!-- Items (posts) -->
+                <div class="img-box">
+                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
+                    <div class="comment">
+                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                    </div>
+                </div>
+
+                <div class="img-box">
+                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
+                    <div class="comment">
+                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                    </div>
+                </div>
+
+                <div class="img-box">
+                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
+                    <div class="comment">
+                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                    </div>
+                </div>
+                <!-- Items end -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Post section end -->
+
+<!-- Logout and user info change modal -->
+<div class="modal-info" th:onclick="'modalInfo()'">
+    <div class="modal">
+        <a th:href="@{/user/update}"><button>회원정보 변경</button></a>
+        <a th:href="@{/logout}"><button>로그아웃</button></a>
+        <button onclick="closePopup('.modal-info')">취소</button>
+    </div>
+</div>
+<!-- Logout and user info change modal end -->
+
+<!-- Profile image change modal -->
+<div class="modal-image" th:onclick="'modalImage()'">
+    <div class="modal">
+        <p>프로필 사진 바꾸기</p>
+        <button onclick="profileImageUpload()">사진 업로드</button>
+        <button onclick="closePopup('.modal-image')">취소</button>
+    </div>
+</div>
+<!-- Profile image change modal end -->
+
+<!-- Subscribe info modal -->
+<div class="modal-subscribe">
+    <div class="subscribe">
+        <div class="subscribe-header">
+            <span>구독정보</span>
+            <button onclick="modalClose()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="subscribe-list" id="subscribeModalList">
+
+            <div class="subscribe__item" id="subscribeModalItem-1">
+                <div class="subscribe__img">
+                    <img th:src="@{/images/person.jpeg}" onerror="this.src='/images/person.jpeg'" />
+                </div>
+                <div class="subscribe__text">
+                    <h2>love</h2>
+                </div>
+                <div class="subscribe__btn">
+                    <button class="cta blue" onclick="toggleSubscribeModal(this)">구독취소</button>
+                </div>
+            </div>
+
+            <div class="subscribe__item" id="subscribeModalItem-2">
+                <div class="subscribe__img">
+                    <img th:src="@{/images/person.jpeg}" onerror="this.src='/images/person.jpeg'" />
+                </div>
+                <div class="subscribe__text">
+                    <h2>ssar</h2>
+                </div>
+                <div class="subscribe__btn">
+                    <button class="cta blue" onclick="toggleSubscribeModal(this)">구독취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe info modal end -->
+
+<script th:src="@{/js/profile.js}"></script>
+
+<!-- Including footer -->
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

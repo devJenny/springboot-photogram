@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="fragments/head :: common-head"></th:block>
+
+<body>
+<!-- Include Header -->
+<th:block th:replace="fragments/header :: header"></th:block>
+
+<!--사진 업로드페이지 중앙배치-->
+<main class="uploadContainer">
+    <!--사진업로드 박스-->
+    <section class="upload">
+        <!--사진업로드 로고-->
+        <div class="upload-top">
+            <a th:href="@{/home}" class="">
+                <img th:src="@{/images/logo.jpg}" alt="Logo">
+            </a>
+            <p>사진 업로드</p>
+        </div>
+        <!--사진업로드 로고 end-->
+
+        <!--사진업로드 Form-->
+        <form class="upload-form" enctype="multipart/form-data" method="post" th:action="@{/upload}">
+            <input type="file" name="file" onchange="imageChoose(this)">
+            <div class="upload-img">
+                <img th:src="@{/images/person.jpeg}" alt="" id="imageUploadPreview">
+            </div>
+
+            <!--사진설명 + 업로드버튼-->
+            <div class="upload-form-detail">
+                <input type="text" placeholder="사진설명" name="caption">
+                <button class="cta blue" type="submit">업로드</button>
+            </div>
+            <!--사진설명end-->
+
+        </form>
+        <!--사진업로드 Form-->
+    </section>
+    <!--사진업로드 박스 end-->
+</main>
+
+<!-- Include Footer -->
+<th:block th:replace="fragments/footer :: footer"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="fragments/head :: common-head"></th:block>
+
+<body>
+<!-- Include Header -->
+<th:block th:replace="fragments/header :: header"></th:block>
+
+<!-- 인기 게시글 -->
+<main class="popular">
+    <div class="exploreContainer">
+
+        <!-- 인기 게시글 갤러리(GRID 배치) -->
+        <div class="popular-gallery">
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+            <div class="p-img-box">
+                <a th:href="@{/user/profile}">
+                    <img th:src="@{/images/home.jpg}" alt="Post Image">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Include Footer -->
+<th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+
+</html>

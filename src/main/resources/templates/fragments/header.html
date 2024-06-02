@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<header class="header">
+    <div class="container">
+        <a th:href="@{/image/story}" class="logo">
+            <img th:src="@{/images/logo.jpg}" alt="Logo">
+        </a>
+        <nav class="navi">
+            <ul class="navi-list">
+                <li class="navi-item"><a th:href="@{/image/story}">
+                    <i class="fas fa-home"></i>
+                </a></li>
+                <li class="navi-item"><a th:href="@{/image/popular}">
+                    <i class="far fa-compass"></i>
+                </a></li>
+                <li class="navi-item"><a th:href="@{/user/profile}">
+                    <i class="far fa-user"></i>
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
