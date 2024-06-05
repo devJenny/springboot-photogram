@@ -1,6 +1,7 @@
 package com.example.photogram.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,13 +21,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(length = 20, unique = true)
     private String username;
+
+    @NotNull
     private String password;
 
+    @NotNull
     private String name;
     private String website;
     private String bio; // 자기소개
+
+    @NotNull
     private String email;
     private String phone;
     private String gender;
