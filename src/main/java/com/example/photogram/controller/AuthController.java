@@ -2,6 +2,7 @@ package com.example.photogram.controller;
 
 import com.example.photogram.domain.entity.User;
 import com.example.photogram.dto.auth.SignupDto;
+import com.example.photogram.handler.ex.CustomValidationException;
 import com.example.photogram.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +35,7 @@ public class AuthController {
     }
 
     @PostMapping("/auth/signup")
-    public @ResponseBody String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {
+    public String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             Map<String, String> errorMap = new HashMap<>();
@@ -42,7 +43,7 @@ public class AuthController {
                 errorMap.put(error.getField(), error.getDefaultMessage());
                 log.info("### error.getDefaultMessage: {} ", error.getDefaultMessage());
             }
-            return "오류남";
+            throw new CustomValidationException("유효성검사 실패함", errorMap);
         } else {
             log.info("signupDto: {}", signupDto.toString());
             // User <- SignupDto
