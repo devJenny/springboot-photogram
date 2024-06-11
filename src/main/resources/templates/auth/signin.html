@@ -22,7 +22,7 @@
                     <h1><img th:src="@{/images/logo.jpg}" alt="Logo"></h1>
 
                     <!-- 로그인 인풋 -->
-                    <form class="login__input" th:action="@{/login}" method="post">
+                    <form class="login__input" th:action="@{/auth/signin}" method="post">
                         <input type="text" name="username" placeholder="유저네임" required="required" />
                         <input type="password" name="password" placeholder="비밀번호" required="required" />
                         <button type="submit">로그인</button>
