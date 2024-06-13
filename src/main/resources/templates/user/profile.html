@@ -89,8 +89,8 @@
 <!-- Logout and user info change modal -->
 <div class="modal-info" th:onclick="'modalInfo()'">
     <div class="modal">
-        <a th:href="@{/user/update}"><button>회원정보 변경</button></a>
-        <a th:href="@{/logout}"><button>로그아웃</button></a>
+        <button th:onclick="|location.href='@{/user/1/update}'|">회원정보 변경</button>
+        <button th:onclick="|location.href='@{/logout}'|">로그아웃</button>
         <button onclick="closePopup('.modal-info')">취소</button>
     </div>
 </div>
