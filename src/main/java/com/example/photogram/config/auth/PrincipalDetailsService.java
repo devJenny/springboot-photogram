@@ -25,7 +25,7 @@ public class PrincipalDetailsService implements UserDetailsService {
             return null;
 
         } else {
-            return new principalDetails(userEntity);
+            return new PrincipalDetails(userEntity);
 
         }
     }
