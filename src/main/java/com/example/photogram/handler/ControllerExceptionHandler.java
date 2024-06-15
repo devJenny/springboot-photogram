@@ -1,13 +1,10 @@
 package com.example.photogram.handler;
 
-import com.example.photogram.dto.CMResDto;
 import com.example.photogram.handler.ex.CustomValidationException;
 import com.example.photogram.util.Script;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @ControllerAdvice

@@ -1,4 +1,4 @@
-package com.example.photogram.dto;
+package com.example.photogram.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

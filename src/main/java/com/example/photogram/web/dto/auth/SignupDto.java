@@ -1,4 +1,4 @@
-package com.example.photogram.dto.auth;
+package com.example.photogram.web.dto.auth;
 
 import com.example.photogram.domain.entity.User;
 import jakarta.validation.constraints.Max;
