@@ -16,8 +16,8 @@ public class UserUpdateDto {
     // 선택값을 entity로 하는 건 위험. 추후 코드 수정 필요
     public User toEntity() {
         return User.builder()
-                .name(name)
-                .password(password)
+                .name(name) // 이름을 기재 안 하면 문제. validation 체크
+                .password(password) // pw를 기재 안 하면 문제. validation 체크
                 .website(website)
                 .bio(bio)
                 .phone(phone)
