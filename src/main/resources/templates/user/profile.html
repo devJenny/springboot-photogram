@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:replace="fragments/head :: common-head"></th:block>
+<th:block th:replace="~{fragments/head :: common-head}"></th:block>
 
 <body>
 <!-- Include Header -->
-<th:block th:replace="fragments/header :: header"></th:block>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
 
 <!-- Profile section -->
 <section class="profile">
@@ -149,7 +149,7 @@
 <script th:src="@{/js/profile.js}"></script>
 
 <!-- Including footer -->
-<footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 
 </body>
 </html>

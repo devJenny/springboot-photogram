@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:replace="fragments/head :: common-head"></th:block>
+<th:block th:replace="~{fragments/head :: common-head}"></th:block>
 
 <body>
 <!-- Include Header -->
-<th:block th:replace="fragments/header :: header"></th:block>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
 
 <!-- 인기 게시글 -->
 <main class="popular">
@@ -54,7 +54,7 @@
 </main>
 
 <!-- Include Footer -->
-<th:block th:replace="fragments/footer :: footer"></th:block>
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
 
 </body>
 
