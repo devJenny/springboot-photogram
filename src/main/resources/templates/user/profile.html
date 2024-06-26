@@ -18,7 +18,7 @@
                 <form id="userProfileImageForm">
                     <input type="file" name="profileImageFile" style="display: none;" id="userProfileImageInput"/>
                 </form>
-                <img class="profile-image" th:src="'#'" onerror="this.src='/images/person.jpeg'" id="userProfileImage"/>
+                <img class="profile-image" th:src="'#'" onerror="this.src='/images/person.png'" id="userProfileImage"/>
             </div>
         </div>
         <!-- User image end -->
@@ -26,7 +26,7 @@
         <!-- User information and buttons (photo upload, subscribe) -->
         <div class="profile-right">
             <div class="name-group">
-                <h2>TherePrograming</h2>
+                <h2>gramgram</h2>
 
                 <a class="cta" th:href="@{/image/upload}">사진등록</a>
                 <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
@@ -42,8 +42,8 @@
                 </ul>
             </div>
             <div class="state">
-                <h4>자기 소개입니다.</h4>
-                <h4><a th:href="@{https://github.com/codingspecialist}">https://github.com/codingspecialist</a></h4>
+                <h4>할 수 있따...★</h4>
+<!--                <h4><a th:href="@{https://github.com/codingspecialist}">https://github.com/codingspecialist</a></h4>-->
             </div>
         </div>
         <!-- User information and buttons end -->
@@ -121,7 +121,7 @@
 
             <div class="subscribe__item" id="subscribeModalItem-1">
                 <div class="subscribe__img">
-                    <img th:src="@{/images/person.jpeg}" onerror="this.src='/images/person.jpeg'" />
+                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'" />
                 </div>
                 <div class="subscribe__text">
                     <h2>love</h2>
@@ -133,7 +133,7 @@
 
             <div class="subscribe__item" id="subscribeModalItem-2">
                 <div class="subscribe__img">
-                    <img th:src="@{/images/person.jpeg}" onerror="this.src='/images/person.jpeg'" />
+                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'" />
                 </div>
                 <div class="subscribe__text">
                     <h2>ssar</h2>
