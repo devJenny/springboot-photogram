@@ -1,6 +1,7 @@
 package com.example.photogram.service;
 
 import com.example.photogram.config.auth.PrincipalDetails;
+import com.example.photogram.domain.entity.Image;
 import com.example.photogram.domain.repository.ImageRepository;
 import com.example.photogram.web.dto.Image.ImageUploadDto;
 import lombok.RequiredArgsConstructor;
@@ -37,5 +38,11 @@ public class ImageService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // image 테이블에 저장
+        Image image = imageUploadDto.toEntity(imageFileName, principalDetails.getUser());
+        Image imageEntity = imageRepository.save(image);
+
+        log.info("imageEntity: {}", imageEntity);
     }
 }
