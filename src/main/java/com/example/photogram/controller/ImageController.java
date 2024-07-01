@@ -43,7 +43,6 @@ public class ImageController {
 
         imageService.upload(imageUploadDto, principalDetails);
 
-
         return "redirect:/user/"+principalDetails.getUser().getId();
 
     }

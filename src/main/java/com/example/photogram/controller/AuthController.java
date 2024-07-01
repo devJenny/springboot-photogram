@@ -45,7 +45,7 @@ public class AuthController {
             throw new CustomValidationException("유효성검사 실패함", errorMap);
         } else {
             log.info("signupDto: {}", signupDto.toString());
-            // User <- SignupDto
+
             User user = signupDto.toEntity();
             log.info("user: {}", user.toString());
 

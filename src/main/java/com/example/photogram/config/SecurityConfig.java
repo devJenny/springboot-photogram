@@ -35,37 +35,4 @@ public class SecurityConfig {
                 )
                 .build();
     }
-
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        return http
-//                .authorizeHttpRequests((authorizeRequests) -> // 3. 인증, 인가 설정
-//                        authorizeRequests
-//                                .requestMatchers("/login", "/signup", "/user").permitAll()
-//                                .anyRequest().authenticated()
-//                )
-//                .formLogin((formLogin) -> // 4. 폼 기반 로그인 설정
-//                        formLogin
-//                                .loginPage("/login")
-//                                .defaultSuccessUrl("/articles")
-//                )
-//                .logout((logoutConfig) -> // 5. 로그아웃 설정
-//                        logoutConfig
-//                                .logoutSuccessUrl("/login")
-//                                .invalidateHttpSession(true) // 세션 무효화
-//                )
-//                .csrf((csrfConfig) -> // 6.csrf 비활성화
-//                        csrfConfig.disable()
-//                )
-//                .build();
-//    }
-
-//    @Bean
-//    public WebSecurityCustomizer configure() {
-//        return (web) -> web.ignoring()
-////                .requestMatchers(toH2Console())
-//                .requestMatchers("/static/**");
-//    }
-
-
 }
