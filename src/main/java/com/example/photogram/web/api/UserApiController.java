@@ -37,13 +37,13 @@ public class UserApiController {
             Map<String, String> errorMap = new HashMap<>();
             for (FieldError error : bindingResult.getFieldErrors()) {
                 errorMap.put(error.getField(), error.getDefaultMessage());
-                log.info("### error.getDefaultMessage: {} ", error.getDefaultMessage());
+
             }
             throw new CustomValidationApiException("유효성검사 실패함", errorMap);
         } else {
         User userEntity = userService.userUpdate(id, userUpdateDto.toEntity());
             principalDetails.setUser(userEntity); // 세션 정보 변경
-            return new CMResDto<>(1, "회원수정완료", userEntity);
+            return new CMResDto<>(1, "회원수정완료", userEntity); // 응답시에 userEntity의 모든 getter 함수가 호출되고 JSON으로 파싱하여 응답함
         }
     }
 }

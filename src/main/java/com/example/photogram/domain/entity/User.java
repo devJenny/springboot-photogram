@@ -1,5 +1,6 @@
 package com.example.photogram.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -46,6 +47,7 @@ public class User {
     // Lazy = User를 Select할 때 해당 User Id로 등록된 Image들을 가져오지마 - 대신 getImages() 함수의 iamge들이 호출퇼 때 가져와
     // Eager = User를 Select 할 때 해당 User id로 등록된 Image들을 전부 Join 해서 가져와
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"user"})
     private List<Image> images;
 
     private LocalDateTime createdDate;
