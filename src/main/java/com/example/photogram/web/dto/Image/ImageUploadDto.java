@@ -14,7 +14,7 @@ public class ImageUploadDto {
         return Image.builder()
                 .caption(caption)
                 .postImageUrl(postImageUrl)
-                .user(null)
+                .user(user)
                 .build();
     }
 }

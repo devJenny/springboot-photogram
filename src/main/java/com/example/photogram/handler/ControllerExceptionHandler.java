@@ -1,6 +1,7 @@
 package com.example.photogram.handler;
 
 import com.example.photogram.handler.ex.CustomApiException;
+import com.example.photogram.handler.ex.CustomException;
 import com.example.photogram.handler.ex.CustomValidationApiException;
 import com.example.photogram.handler.ex.CustomValidationException;
 import com.example.photogram.util.Script;
@@ -29,6 +30,12 @@ public class ControllerExceptionHandler {
             return Script.back(e.getErrorMap().toString());
         }
     }
+
+    @ExceptionHandler(CustomException.class)
+    public String exception(CustomException e) {
+        return Script.back(e.getMessage());
+    }
+
 
     @ExceptionHandler(CustomValidationApiException.class)
     public ResponseEntity<?> validApiException(CustomValidationApiException e) {
