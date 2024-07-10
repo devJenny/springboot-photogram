@@ -26,7 +26,7 @@
         <!-- User information and buttons (photo upload, subscribe) -->
         <div class="profile-right">
             <div class="name-group">
-                <h2>gramgram</h2>
+                <h2 th:text="${user.name}"></h2>
 
                 <a class="cta" th:href="@{/image/upload}">사진등록</a>
                 <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
@@ -42,8 +42,8 @@
                 </ul>
             </div>
             <div class="state">
-                <h4>할 수 있따...★</h4>
-<!--                <h4><a th:href="@{https://github.com/codingspecialist}">https://github.com/codingspecialist</a></h4>-->
+                <h4 th:text="${user.bio}"></h4>
+                <h4 th:text="${user.website}"></h4>
             </div>
         </div>
         <!-- User information and buttons end -->
@@ -59,26 +59,24 @@
             <div class="tab-1-content-inner">
 
                 <!-- Items (posts) -->
+                <!--                                <div class="img-box">
+                                                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
+                                                    <div class="comment">
+                                                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                                                    </div>
+                                                </div>-->
+
                 <div class="img-box">
-                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
-                    <div class="comment">
-                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                    <div th:each="image : ${user.images}">
+                        <a href="">
+                            <img th:src="@{'/upload/' + ${image.postImageUrl}}" alt="Image"/>
+                        </a>
+                        <div class="comment">
+                            <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="img-box">
-                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
-                    <div class="comment">
-                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
-                    </div>
-                </div>
-
-                <div class="img-box">
-                    <a href=""><img th:src="@{/images/home.jpg}" /></a>
-                    <div class="comment">
-                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
-                    </div>
-                </div>
                 <!-- Items end -->
             </div>
         </div>
@@ -90,7 +88,7 @@
 <div class="modal-info" th:onclick="'modalInfo()'">
     <div class="modal">
         <button th:onclick="|location.href='@{/user/1/update}'|">회원정보 변경</button>
-<!--        <button th:onclick="|location.href='@{/user/{id}/update(id=${#authentication.principal.user.id})}'|">회원정보 변경</button>-->
+        <!--        <button th:onclick="|location.href='@{/user/{id}/update(id=${#authentication.principal.user.id})}'|">회원정보 변경</button>-->
         <button th:onclick="|location.href='@{/logout}'|">로그아웃</button>
         <button onclick="closePopup('.modal-info')">취소</button>
     </div>
@@ -121,7 +119,7 @@
 
             <div class="subscribe__item" id="subscribeModalItem-1">
                 <div class="subscribe__img">
-                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'" />
+                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'"/>
                 </div>
                 <div class="subscribe__text">
                     <h2>love</h2>
@@ -133,7 +131,7 @@
 
             <div class="subscribe__item" id="subscribeModalItem-2">
                 <div class="subscribe__img">
-                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'" />
+                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'"/>
                 </div>
                 <div class="subscribe__text">
                     <h2>ssar</h2>
