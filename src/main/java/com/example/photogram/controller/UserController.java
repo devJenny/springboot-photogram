@@ -20,6 +20,7 @@ public class UserController {
     public String profile(@PathVariable("pageUserId") int pageUserId, Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
         UserProfileDto dto = userService.userProfile(pageUserId, principalDetails.getUser().getId());
         model.addAttribute("dto", dto);
+
         return "user/profile";
     }
 

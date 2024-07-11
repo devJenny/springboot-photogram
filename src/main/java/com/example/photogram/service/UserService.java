@@ -1,6 +1,7 @@
 package com.example.photogram.service;
 
 import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.repository.SubscribeRepository;
 import com.example.photogram.domain.repository.UserRepository;
 import com.example.photogram.handler.ex.CustomException;
 import com.example.photogram.handler.ex.CustomValidationApiException;
@@ -10,14 +11,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-import java.util.function.Supplier;
-
 @RequiredArgsConstructor
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
+    private final SubscribeRepository subscribeRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Transactional(readOnly = true)
@@ -32,6 +31,12 @@ public class UserService {
         dto.setUser(userEntity);
         dto.setPageOwnerState(pageUserId == principalId);
         dto.setImageCount(userEntity.getImages().size());
+
+        int subscribeState = subscribeRepository.mSubscribeState(principalId, pageUserId);
+        int subscribeCount = subscribeRepository.mSubscribeCount(pageUserId);
+
+        dto.setSubscribeState(subscribeState == 1);
+        dto.setSubscribeCount(subscribeCount);
 
         return dto;
     }

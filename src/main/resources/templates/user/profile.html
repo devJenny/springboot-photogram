@@ -32,7 +32,12 @@
                     <a class="cta" th:href="@{/image/upload}">사진등록</a>
                 </span>
                 <span th:unless="${dto.pageOwnerState}">
+                    <span th:if="${dto.subscribeState}">
+                    <button class="cta blue" onclick="toggleSubscribe(this)">구독취소</button>
+                    </span>
+                    <span th:unless="${dto.subscribeState}">
                     <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
+                    </span>
                 </span>
 
                 <button class="modi" th:onclick="'popup(\'.modal-info\')'">
@@ -43,7 +48,7 @@
             <div class="subscribe">
                 <ul>
                     <li><a href="">게시물 <span th:text="${dto.imageCount}"></span></a></li>
-                    <li><a href="#" onclick="subscribeInfoModalOpen();">구독정보 <span>2</span></a></li>
+                    <li><a href="#" onclick="subscribeInfoModalOpen();">구독정보 <span th:text="${dto.subscribeCount}"></span></a></li>
                 </ul>
             </div>
             <div class="state">
