@@ -26,10 +26,15 @@
         <!-- User information and buttons (photo upload, subscribe) -->
         <div class="profile-right">
             <div class="name-group">
-                <h2 th:text="${user.name}"></h2>
+                <h2 th:text="${dto.user.name}"></h2>
 
-                <a class="cta" th:href="@{/image/upload}">사진등록</a>
-                <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
+                <span th:if="${dto.pageOwnerState}">
+                    <a class="cta" th:href="@{/image/upload}">사진등록</a>
+                </span>
+                <span th:unless="${dto.pageOwnerState}">
+                    <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
+                </span>
+
                 <button class="modi" th:onclick="'popup(\'.modal-info\')'">
                     <i class="fas fa-cog"></i>
                 </button>
@@ -37,13 +42,13 @@
 
             <div class="subscribe">
                 <ul>
-                    <li><a href="">게시물 <span>3</span></a></li>
+                    <li><a href="">게시물 <span th:text="${dto.imageCount}"></span></a></li>
                     <li><a href="#" onclick="subscribeInfoModalOpen();">구독정보 <span>2</span></a></li>
                 </ul>
             </div>
             <div class="state">
-                <h4 th:text="${user.bio}"></h4>
-                <h4 th:text="${user.website}"></h4>
+                <h4 th:text="${dto.user.bio}"></h4>
+                <h4 th:text="${dto.user.website}"></h4>
             </div>
         </div>
         <!-- User information and buttons end -->
@@ -66,7 +71,7 @@
                                                     </div>
                                                 </div>-->
 
-                <div class="img-box" th:each="image : ${user.images}">
+                <div class="img-box" th:each="image : ${dto.user.images}">
                     <a href="">
                         <img th:src="@{'/upload/' + ${image.postImageUrl}}" alt="Image"/>
                     </a>
