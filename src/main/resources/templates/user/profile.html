@@ -33,10 +33,10 @@
                 </span>
                 <span th:unless="${dto.pageOwnerState}">
                     <span th:if="${dto.subscribeState}">
-                    <button class="cta blue" onclick="toggleSubscribe(this)">구독취소</button>
+                    <button class="cta blue" th:onclick="toggleSubscribe([[${dto.user.id}]], this)">구독취소</button>
                     </span>
                     <span th:unless="${dto.subscribeState}">
-                    <button class="cta" onclick="toggleSubscribe(this)">구독하기</button>
+                    <button class="cta" th:onclick="toggleSubscribe([[${dto.user.id}]],this)">구독하기</button>
                     </span>
                 </span>
 
