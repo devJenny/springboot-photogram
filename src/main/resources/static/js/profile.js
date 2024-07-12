@@ -47,6 +47,7 @@ function subscribeInfoModalOpen() {
 }
 
 function getSubscribeModalItem() {
+    $(".modal-subscribe").css("display", "flex")
 
 }
 
