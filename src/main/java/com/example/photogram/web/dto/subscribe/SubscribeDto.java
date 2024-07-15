@@ -14,7 +14,7 @@ public class SubscribeDto {
     private int id;
     private String username;
     private String profileImageUrl;
-    private Integer subscribeState;
-    private Integer equalUserState;
+    private Long subscribeState;
+    private Long equalUserState;
 
 }
