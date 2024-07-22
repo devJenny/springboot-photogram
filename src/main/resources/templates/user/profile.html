@@ -33,10 +33,13 @@
                 </span>
                 <span th:unless="${dto.pageOwnerState}">
                     <span th:if="${dto.subscribeState}">
-                    <button class="cta blue" th:onclick="toggleSubscribe([[${dto.user.id}]], this)">구독취소</button>
+                    <button class="cta blue" th:onclick="'toggleSubscribe(' + ${dto.user.id} + ', this)'">구독취소</button>
+
+
                     </span>
                     <span th:unless="${dto.subscribeState}">
-                    <button class="cta" th:onclick="toggleSubscribe([[${dto.user.id}]],this)">구독하기</button>
+                    <button class="cta" th:onclick="'toggleSubscribe(' + ${dto.user.id} + ', this)'">구독하기</button>
+
                     </span>
                 </span>
 
@@ -48,7 +51,9 @@
             <div class="subscribe">
                 <ul>
                     <li><a href="">게시물 <span th:text="${dto.imageCount}"></span></a></li>
-                    <li><a href="#" onclick="subscribeInfoModalOpen();">구독정보 <span th:text="${dto.subscribeCount}"></span></a></li>
+                    <li><a href="#" th:onclick="'subscribeInfoModalOpen(' + ${dto.user.id} + ')'">구독정보 <span
+                            th:text="${dto.subscribeCount}"></span></a></li>
+
                 </ul>
             </div>
             <div class="state">
@@ -123,31 +128,9 @@
             </button>
         </div>
 
+        <!-- 구독 취소 js -->
         <div class="subscribe-list" id="subscribeModalList">
 
-            <div class="subscribe__item" id="subscribeModalItem-1">
-                <div class="subscribe__img">
-                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'"/>
-                </div>
-                <div class="subscribe__text">
-                    <h2>love</h2>
-                </div>
-                <div class="subscribe__btn">
-                    <button class="cta blue" onclick="toggleSubscribeModal(this)">구독취소</button>
-                </div>
-            </div>
-
-            <div class="subscribe__item" id="subscribeModalItem-2">
-                <div class="subscribe__img">
-                    <img th:src="@{/images/person.png}" onerror="this.src='/images/person.png'"/>
-                </div>
-                <div class="subscribe__text">
-                    <h2>ssar</h2>
-                </div>
-                <div class="subscribe__btn">
-                    <button class="cta blue" onclick="toggleSubscribeModal(this)">구독취소</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
