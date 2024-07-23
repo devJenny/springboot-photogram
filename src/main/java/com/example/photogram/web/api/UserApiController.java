@@ -3,7 +3,6 @@ package com.example.photogram.web.api;
 import com.example.photogram.config.auth.PrincipalDetails;
 import com.example.photogram.domain.entity.User;
 import com.example.photogram.handler.ex.CustomValidationApiException;
-import com.example.photogram.handler.ex.CustomValidationException;
 import com.example.photogram.service.SubscribeService;
 import com.example.photogram.service.UserService;
 import com.example.photogram.web.dto.CMResDto;
@@ -40,7 +39,7 @@ public class UserApiController {
 
         List<SubscribeDto> subscribeDto = subscribeService.subscribeList(principalDetails.getUser().getId(), pageUserId);
 
-        return new ResponseEntity<>(new CMResDto<>(1, "구독자 정보 리스트 불러오기 성공", subscribeDto),HttpStatus.OK);
+        return new ResponseEntity<>(new CMResDto<>(1, "구독자 정보 리스트 불러오기 성공", subscribeDto), HttpStatus.OK);
 
     }
 
@@ -59,7 +58,7 @@ public class UserApiController {
             }
             throw new CustomValidationApiException("유효성검사 실패함", errorMap);
         } else {
-        User userEntity = userService.userUpdate(id, userUpdateDto.toEntity());
+            User userEntity = userService.userUpdate(id, userUpdateDto.toEntity());
             principalDetails.setUser(userEntity); // 세션 정보 변경
             return new CMResDto<>(1, "회원수정완료", userEntity); // 응답시에 userEntity의 모든 getter 함수가 호출되고 JSON으로 파싱하여 응답함
         }

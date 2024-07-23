@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -47,4 +48,11 @@ public class ImageService {
 
 //        log.info("imageEntity: {}", imageEntity);
     }
+
+    @Transactional(readOnly = true) // 영속성 컨텍스트를 변경 감지해서, 더티체킹. flush(반영)
+    public List<Image> imageStory(int principleId) {
+        List<Image> images = imageRepository.mStory(principleId);
+        return images;
+    }
+
 }
