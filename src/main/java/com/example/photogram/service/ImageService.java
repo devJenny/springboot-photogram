@@ -1,8 +1,8 @@
 package com.example.photogram.service;
 
 import com.example.photogram.config.auth.PrincipalDetails;
-import com.example.photogram.domain.entity.Image;
-import com.example.photogram.domain.repository.ImageRepository;
+import com.example.photogram.domain.image.Image;
+import com.example.photogram.domain.image.ImageRepository;
 import com.example.photogram.web.dto.Image.ImageUploadDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

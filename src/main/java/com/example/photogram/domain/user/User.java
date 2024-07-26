@@ -1,5 +1,6 @@
-package com.example.photogram.domain.entity;
+package com.example.photogram.domain.user;
 
+import com.example.photogram.domain.image.Image;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

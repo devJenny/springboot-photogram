@@ -1,7 +1,7 @@
 package com.example.photogram.web.api;
 
 import com.example.photogram.config.auth.PrincipalDetails;
-import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.user.User;
 import com.example.photogram.handler.ex.CustomValidationApiException;
 import com.example.photogram.service.SubscribeService;
 import com.example.photogram.service.UserService;

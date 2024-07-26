@@ -1,6 +1,6 @@
 package com.example.photogram.config.auth;
 
-import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.user.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

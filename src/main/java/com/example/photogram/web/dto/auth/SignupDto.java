@@ -1,7 +1,6 @@
 package com.example.photogram.web.dto.auth;
 
-import com.example.photogram.domain.entity.User;
-import jakarta.validation.constraints.Max;
+import com.example.photogram.domain.user.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;

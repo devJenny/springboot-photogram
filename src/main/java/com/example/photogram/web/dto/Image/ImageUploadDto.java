@@ -1,7 +1,7 @@
 package com.example.photogram.web.dto.Image;
 
-import com.example.photogram.domain.entity.Image;
-import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.image.Image;
+import com.example.photogram.domain.user.User;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 

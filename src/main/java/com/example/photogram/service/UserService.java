@@ -1,8 +1,8 @@
 package com.example.photogram.service;
 
-import com.example.photogram.domain.entity.User;
-import com.example.photogram.domain.repository.SubscribeRepository;
-import com.example.photogram.domain.repository.UserRepository;
+import com.example.photogram.domain.user.User;
+import com.example.photogram.domain.subscribe.SubscribeRepository;
+import com.example.photogram.domain.user.UserRepository;
 import com.example.photogram.handler.ex.CustomException;
 import com.example.photogram.handler.ex.CustomValidationApiException;
 import com.example.photogram.web.dto.user.UserProfileDto;

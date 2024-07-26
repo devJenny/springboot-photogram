@@ -1,6 +1,6 @@
 package com.example.photogram.web.dto.user;
 
-import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

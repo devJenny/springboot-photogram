@@ -1,6 +1,6 @@
 package com.example.photogram.controller;
 
-import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.user.User;
 import com.example.photogram.web.dto.auth.SignupDto;
 import com.example.photogram.handler.ex.CustomValidationException;
 import com.example.photogram.service.AuthService;

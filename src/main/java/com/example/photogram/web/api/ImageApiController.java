@@ -1,7 +1,7 @@
 package com.example.photogram.web.api;
 
 import com.example.photogram.config.auth.PrincipalDetails;
-import com.example.photogram.domain.entity.Image;
+import com.example.photogram.domain.image.Image;
 import com.example.photogram.service.ImageService;
 import com.example.photogram.web.dto.CMResDto;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController

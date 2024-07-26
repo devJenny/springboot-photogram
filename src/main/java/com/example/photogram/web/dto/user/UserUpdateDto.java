@@ -1,6 +1,6 @@
 package com.example.photogram.web.dto.user;
 
-import com.example.photogram.domain.entity.User;
+import com.example.photogram.domain.user.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 

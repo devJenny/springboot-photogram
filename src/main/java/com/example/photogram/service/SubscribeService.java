@@ -1,6 +1,6 @@
 package com.example.photogram.service;
 
-import com.example.photogram.domain.repository.SubscribeRepository;
+import com.example.photogram.domain.subscribe.SubscribeRepository;
 import com.example.photogram.handler.ex.CustomApiException;
 import com.example.photogram.web.dto.subscribe.SubscribeDto;
 import jakarta.persistence.EntityManager;

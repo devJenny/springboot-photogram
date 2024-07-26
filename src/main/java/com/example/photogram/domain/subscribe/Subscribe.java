@@ -1,5 +1,6 @@
-package com.example.photogram.domain.entity;
+package com.example.photogram.domain.subscribe;
 
+import com.example.photogram.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

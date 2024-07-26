@@ -1,7 +1,7 @@
 package com.example.photogram.config.auth;
 
-import com.example.photogram.domain.entity.User;
-import com.example.photogram.domain.repository.UserRepository;
+import com.example.photogram.domain.user.User;
+import com.example.photogram.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

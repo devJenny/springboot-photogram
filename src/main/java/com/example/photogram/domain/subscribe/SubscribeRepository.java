@@ -1,6 +1,5 @@
-package com.example.photogram.domain.repository;
+package com.example.photogram.domain.subscribe;
 
-import com.example.photogram.domain.entity.Subscribe;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
