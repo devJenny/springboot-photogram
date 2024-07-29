@@ -33,6 +33,7 @@ public class Likes { // N
     @ManyToOne
     private Image image; // 1
 
+    // 오류가 터진 후 잡음
     @JoinColumn(name="userId")
     @ManyToOne
     private User user; // 1
