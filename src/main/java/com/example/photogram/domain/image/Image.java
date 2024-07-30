@@ -35,9 +35,11 @@ public class Image {
 
     // 댓글
 
-
     @Transient // db에 컬럼이 만들어지지 않음
     private boolean likeState;
+
+    @Transient
+    private int likeCount;
 
     private LocalDateTime createdDate;
 
