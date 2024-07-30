@@ -86,7 +86,7 @@
                         <img th:src="@{'/upload/' + ${image.postImageUrl}}" alt="Image"/>
                     </a>
                     <div class="comment">
-                        <a href="#" class=""><i class="fas fa-heart"></i><span>0</span></a>
+                        <a href="#" class=""><i class="fas fa-heart"></i><span th:text="${image.likeCount}"></span></a>
                     </div>
                 </div>
 
