@@ -13,44 +13,15 @@
 
         <!-- 인기 게시글 갤러리(GRID 배치) -->
         <div class="popular-gallery">
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-            <div class="p-img-box">
-                <a th:href="@{/user/profile}">
-                    <img th:src="@{/images/home.jpg}" alt="Post Image">
-                </a>
-            </div>
-        </div>
 
-    </div>
+                <div class="p-img-box" th:each="image : ${images}">
+                    <a th:href="@{'/user/'/${image.user.id}}">
+<!--                        <img th:src="@{/images/home.jpg}" alt="Post Image">-->
+                        <img th:src="@{'/upload/' + ${image.postImageUrl}}" alt="Post Image"/>
+
+                    </a>
+                </div>
+        </div>
 </main>
 
 <!-- Include Footer -->

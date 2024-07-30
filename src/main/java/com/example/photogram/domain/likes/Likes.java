@@ -2,6 +2,7 @@ package com.example.photogram.domain.likes;
 
 import com.example.photogram.domain.image.Image;
 import com.example.photogram.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,9 +32,10 @@ public class Likes { // N
 
     @JoinColumn(name="imageId")
     @ManyToOne
-    private Image image; // 1
+    private Image images; // 1
 
     // 오류가 터진 후 잡음
+    @JsonIgnoreProperties({"images"})
     @JoinColumn(name="userId")
     @ManyToOne
     private User user; // 1

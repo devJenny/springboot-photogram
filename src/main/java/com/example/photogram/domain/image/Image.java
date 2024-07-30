@@ -28,8 +28,8 @@ public class Image {
     private User user; // 1,1
 
     // 이미지 좋아요
-    @JsonIgnoreProperties({"image"})
-    @OneToMany(mappedBy = "image")
+    @JsonIgnoreProperties({"images"})
+    @OneToMany(mappedBy = "images")
     private List<Likes> likes;
 
 
