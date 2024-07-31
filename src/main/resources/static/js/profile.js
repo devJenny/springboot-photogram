@@ -108,37 +108,34 @@ function profileImageUpload(pageUserId, principalId) {
             return;
         }
 
-    // 서버에 이미지 전송
-    let profileImageForm = $("#userProfileImageForm")[0];
-    console.log("profileImageForm", profileImageForm);
+        // 서버에 이미지 전송
+        let profileImageForm = $("#userProfileImageForm")[0];
+        console.log("profileImageForm", profileImageForm);
 
-    // FormData 객체를 이용하면 form 태그의 필드와 그 값을 나타내는 일련의 key/value 쌍을 담을 수 있다
-    let formData = new FormData(profileImageForm);
+        // FormData 객체를 이용하면 form 태그의 필드와 그 값을 나타내는 일련의 key/value 쌍을 담을 수 있다
+        let formData = new FormData(profileImageForm);
 
-    $.ajax({
-        type: "put",
-        url: `/api/user/${principalId}/profileImageUrl`,
-        data: formData,
-        contentType: false, // 필수: x-www-from-urlencoded로 파싱되는 것을 방지
-        processData: false, // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
-        enctype: "multipart/form-data",
-        dataType: "json"
-    }).done(res => {
+        $.ajax({
+            type: "put",
+            url: `/api/user/${principalId}/profileImageUrl`,
+            data: formData,
+            contentType: false, // 필수: x-www-from-urlencoded로 파싱되는 것을 방지
+            processData: false, // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
+            enctype: "multipart/form-data",
+            dataType: "json"
+        }).done(res => {
 
-        // 사진 전송 성공시 이미지 변경
-        let reader = new FileReader();
-        reader.onload = (e) => {
-            $("#userProfileImage").attr("src", e.target.result);
-        }
-        reader.readAsDataURL(f); // 이 코드 실행시 reader.onload 실행됨.
-    }).fail(err => {
-        console.log("오류", err)
+            // 사진 전송 성공시 이미지 변경
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $("#userProfileImage").attr("src", e.target.result);
+            }
+            reader.readAsDataURL(f); // 이 코드 실행시 reader.onload 실행됨.
+        }).fail(err => {
+            console.log("오류", err)
 
+        });
     });
-
-
-    });
-
 
 }
 

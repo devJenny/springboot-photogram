@@ -34,14 +34,12 @@ public class UserApiController {
     private final UserService userService;
     private final SubscribeService subscribeService;
 
-
     @GetMapping("/api/user/{pageUserId}/subscribe")
     public ResponseEntity<?> subscribeList(@PathVariable("pageUserId") int pageUserId, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
         List<SubscribeDto> subscribeDto = subscribeService.subscribeList(principalDetails.getUser().getId(), pageUserId);
 
         return new ResponseEntity<>(new CMResDto<>(1, "구독자 정보 리스트 불러오기 성공", subscribeDto), HttpStatus.OK);
-
     }
 
     @PutMapping("/api/user/{id}")
@@ -71,7 +69,6 @@ public class UserApiController {
         principalDetails.setUser(userEntity); // 세션 변경
 
         return new ResponseEntity<>(new CMResDto<>(1, "프로필사진변경 성공", null), HttpStatus.OK);
-
-
     }
+
 }

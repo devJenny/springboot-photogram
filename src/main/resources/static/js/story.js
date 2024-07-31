@@ -31,7 +31,7 @@ function getStoryItem(image) {
     let item = `<div class="story-list__item">
     <div class="sl__item__header">
         <div>
-            <img class="profile-image" src="/upload/${image.user.profileImageFile}" onerror="this.src='/images/person.png'" />
+            <img class="profile-image" src="/upload/${image.user.profileImageUrl}" onerror="this.src='/images/person.png'" />
         </div>
         <div>${image.user.username}</div>
     </div>
@@ -60,7 +60,7 @@ function getStoryItem(image) {
             <p>${image.caption}</p>
         </div>
 
-        <div id="storyCommentList-1">
+        <div id="storyCommentList-{image.id}">
 
             <div class="sl__item__contents__comment" id="storyCommentItem-1">
                 <p>
@@ -76,8 +76,8 @@ function getStoryItem(image) {
         </div>
 
         <div class="sl__item__input">
-            <input type="text" placeholder="댓글 달기..." id="storyCommentInput-1" />
-            <button type="button" onClick="addComment()">게시</button>
+            <input type="text" placeholder="댓글 달기..." id="storyCommentInput-${image.id}" />
+            <button type="button" onClick="addComment(${image.id})">게시</button>
         </div>
 
     </div>
@@ -93,7 +93,7 @@ $(window).scroll(() => {
     // console.log("윈도우 높이",$(window).height());
 
     let checkNum = $(window).scrollTop() - ($(document).height() - $(window).height());
-    console.log(checkNum);
+    // console.log(checkNum);
 
     if (checkNum < 1 && checkNum > -1) {
         page++;
@@ -116,7 +116,8 @@ function toggleLike(imageId) {
 
                 let likeCountStr = $(`#storyLikeCount-${imageId}`).text();
                 let likeCount = Number(likeCountStr) + 1;
-                $(`#storyLikeCount-${imageId}`).text(likeCount);;
+                $(`#storyLikeCount-${imageId}`).text(likeCount);
+                ;
 
                 likeIcon.addClass("fas");
                 likeIcon.addClass("active");
@@ -136,7 +137,8 @@ function toggleLike(imageId) {
 
                 let likeCountStr = $(`#storyLikeCount-${imageId}`).text();
                 let likeCount = Number(likeCountStr) - 1;
-                $(`#storyLikeCount-${imageId}`).text(likeCount);;
+                $(`#storyLikeCount-${imageId}`).text(likeCount);
+                ;
 
                 likeIcon.removeClass("fas");
                 likeIcon.removeClass("active");
@@ -150,19 +152,36 @@ function toggleLike(imageId) {
 }
 
 // (4) 댓글쓰기
-function addComment() {
+function addComment(imageId) {
 
-    let commentInput = $("#storyCommentInput-1");
-    let commentList = $("#storyCommentList-1");
+    let commentInput = $(`#storyCommentInput-${imageId}`);
+    let commentList = $(`#storyCommentList-${imageId}`);
 
     let data = {
+        imageId: imageId,
         content: commentInput.val()
     }
+
+    // console.log(data);
+    console.log(JSON.stringify(data));
 
     if (data.content === "") {
         alert("댓글을 작성해주세요!");
         return;
     }
+
+    $.ajax({
+        type: "post",
+        url: "/api/comment",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(res => {
+        console.log("성공", res)
+
+    }).fail(err => {
+        console.log("오류", err)
+    });
 
     let content = `
 			  <div class="sl__item__contents__comment" id="storyCommentItem-2""> 

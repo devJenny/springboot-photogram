@@ -88,7 +88,7 @@ public class UserService {
         String imageFileName = uuid + "_" + profileImageFile.getOriginalFilename();// 1.jpg
         log.info("imageFileName: {}", imageFileName);
 
-        Path imageFilePath = Paths.get(uploadFolder+imageFileName);
+        Path imageFilePath = Paths.get(uploadFolder + imageFileName);
 
 
         // 통신, I/O -> 예외 발생
