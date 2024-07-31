@@ -15,10 +15,11 @@
         <!-- User image -->
         <div class="profile-left">
             <div class="profile-img-wrap story-border" th:onclick="'popup(\'.modal-image\')'">
+
                 <form id="userProfileImageForm">
                     <input type="file" name="profileImageFile" style="display: none;" id="userProfileImageInput"/>
                 </form>
-                <img class="profile-image" th:src="'#'" onerror="this.src='/images/person.png'" id="userProfileImage"/>
+                <img class="profile-image" th:src="@{'/upload/' + ${dto.user.profileImageUrl}}" onerror="this.src='/images/person.png'" id="userProfileImage"/>
             </div>
         </div>
         <!-- User image end -->
@@ -112,7 +113,11 @@
 <div class="modal-image" th:onclick="'modalImage()'">
     <div class="modal">
         <p>프로필 사진 바꾸기</p>
-        <button onclick="profileImageUpload()">사진 업로드</button>
+<!--        <button th:onclick="'profileImageUpload(' + ${dto.user.id} + ',' + ${principal.user.id} + ', this)'">사진 업로드</button>-->
+        <button th:onclick="'profileImageUpload(' + ${dto.user.id} + ', ' + ${#authentication.principal.user.id} + ')'">
+        사진 업로드
+        </button>
+
         <button onclick="closePopup('.modal-image')">취소</button>
     </div>
 </div>
