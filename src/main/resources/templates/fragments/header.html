@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <header class="header">
+    <div sec:authorize="isAuthenticated()">
+        <input type="hidden" id="principalId" th:value="${#authentication.principal.user.id}">
+    </div>
+
+
     <div class="container">
         <a th:href="@{/}" class="logo">
             <img th:src="@{/images/logo.jpg}" alt="Logo">

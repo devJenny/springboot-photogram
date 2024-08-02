@@ -1,5 +1,6 @@
 package com.example.photogram.domain.image;
 
+import com.example.photogram.domain.comment.Comment;
 import com.example.photogram.domain.likes.Likes;
 import com.example.photogram.domain.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -34,6 +35,10 @@ public class Image {
 
 
     // 댓글
+    @OrderBy("id DESC")
+    @JsonIgnoreProperties({"image"})
+    @OneToMany(mappedBy = "image")
+    private List<Comment> comments;
 
     @Transient // db에 컬럼이 만들어지지 않음
     private boolean likeState;
