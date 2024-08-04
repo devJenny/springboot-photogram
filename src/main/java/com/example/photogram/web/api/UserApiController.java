@@ -16,10 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
@@ -63,7 +60,7 @@ public class UserApiController {
     }
 
     @PutMapping("/api/user/{principalId}/profileImageUrl")
-    public ResponseEntity<?> profileImageUrlUpdate(@PathVariable("principalId") int principalId, MultipartFile profileImageFile,
+    public ResponseEntity<?> profileImageUrlUpdate(@PathVariable("principalId") int principalId, @RequestParam("profileImageFile") MultipartFile profileImageFile,
                                                    @AuthenticationPrincipal PrincipalDetails principalDetails) {
         User userEntity = userService.userProfileImageUpdate(principalId, profileImageFile);
         principalDetails.setUser(userEntity); // 세션 변경
